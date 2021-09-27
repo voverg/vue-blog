@@ -1,4 +1,5 @@
 # vue-blog
+This is a vue-blog project. You can see a demo version by [this link]()
 
 ## Project setup
 ```
