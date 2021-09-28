@@ -5,7 +5,7 @@
     />
     <PostList
       :posts="posts"
-
+      @remove="removePost"
     />
   </main>
 </template>
@@ -32,17 +32,31 @@
       createPost(post) {
         this.posts.push(post);
       },
+      removePost(post) {
+        this.posts = this.posts.filter((p) => {
+          return p.id !== post.id;
+        });
+      }
     }
   }
 </script>
 
 <style>
   :root {
-    --green: #1fe41f;
+    --blue: #1793b1;
+  }
+
+  html, body, * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, sans-serif;
+    font-size: 16px;
+    color: #555;
   }
 
   .App {
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px;
   }
 </style>

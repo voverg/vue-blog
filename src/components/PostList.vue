@@ -1,12 +1,22 @@
 <template>
-  <div class="post" v-for="post in posts">
-    <div class="post__title"><strong>Title: </strong>{{ post.title }}</div>
-    <div class="post__body"><strong>Body: </strong>{{ post.body }}</div>
+  <div class="post-list">
+    <h3 class="post-list__title">User list</h3>
+    <PostItem
+      v-for="post in posts"
+      :post="post"
+      :key="post.id"
+      @remove="$emit('remove', post)"
+    />
   </div>
 </template>
 
 <script>
+  import PostItem from '@/components/PostItem';
+
   export default {
+    components: {
+      PostItem
+    },
     props: {
       posts: {
         type: Array,
@@ -17,10 +27,8 @@
 </script>
 
 <style scoped>
-  .post {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 2px solid var(--green);
-    border-radius: 3px;
+  .post-list__title {
+    margin: 20px 0 10px;
+    text-align: center;
   }
 </style>
