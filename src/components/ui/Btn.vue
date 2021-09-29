@@ -19,6 +19,7 @@
     transition: all.2s ease-out;
     background-color: transparent;
     font-size: 12px;
+    user-select: none;
   }
   button:hover {
     background-color: var(--blue);

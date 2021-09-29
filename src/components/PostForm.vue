@@ -1,11 +1,13 @@
 <template>
   <form class="new-post" @submit.prevent="createPost">
-    <my-input
+    <h3 class="new-post__title">Creating a new post</h3>
+    <MyInput
       v-model="post.title"
       type="text"
       placeholder="Title"
     />
-    <my-input
+    <MyInput
+      class="new-post__body"
       v-model="post.body"
       type="text"
       placeholder="Description"
@@ -43,15 +45,18 @@
 
 <style scoped>
   form.new-post {
+    width: 60vw;
+    height: 50vh;
     display: flex;
     flex-direction: column;
+  }
+
+  .new-post__title {
     margin-bottom: 15px;
-    border-bottom: 1px solid var(--blue);
   }
 
   .add-post {
     align-self: flex-end;
-    margin-bottom: 10px;
   }
 </style>
 

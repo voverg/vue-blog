@@ -1,6 +1,5 @@
 <template>
-  <div class="post-list">
-    <h3 class="post-list__title">User list</h3>
+  <div class="post-list" v-if="posts.length > 0">
     <PostItem
       v-for="post in posts"
       :post="post"
@@ -8,6 +7,8 @@
       @remove="$emit('remove', post)"
     />
   </div>
+
+  <h3 class="empty-list" v-else>Post list is empty.</h3>
 </template>
 
 <script>
@@ -30,5 +31,10 @@
   .post-list__title {
     margin: 20px 0 10px;
     text-align: center;
+  }
+
+  .empty-list {
+    text-align: center;
+    color: #555;
   }
 </style>
